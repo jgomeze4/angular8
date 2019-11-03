@@ -15,6 +15,10 @@ import { DetalleUsComponent } from './usuario/detalle-us/detalle-us.component';
 import { AgregarInsComponent } from './insumo/agregar-ins/agregar-ins.component';
 import { SacarInsComponent } from './insumo/sacar-ins/sacar-ins.component';
 
+import { InsumoService } from  'src/app/services/insumo.service';
+import { InventarioService } from  'src/app/services/inventario.service';
+import { UsuarioService } from  'src/app/services/usuario.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,7 @@ import { SacarInsComponent } from './insumo/sacar-ins/sacar-ins.component';
     BrowserAnimationsModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [InsumoService,InventarioService,UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
