@@ -6,6 +6,7 @@ export class InsumoAdd{
     codigo:string;
     presentacion:string;
     regInvima:string;
+    idUsuario:string;
     clasificacionRiesgo:string;
     tempAlmacenamiento:string;
     activo:string;

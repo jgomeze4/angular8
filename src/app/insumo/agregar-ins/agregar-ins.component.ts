@@ -19,16 +19,17 @@ export class AgregarInsComponent implements OnInit {
     form.resetForm();
 
     this.service.formData ={
-      idProducto:0,
+      idProducto:null,
       nombre:'',
       marca:'',
       proveedor:'',
       codigo:'',
       presentacion:'',
       regInvima:'',
+      idUsuario:null,
       clasificacionRiesgo:'',
       tempAlmacenamiento:'',
-      activo:'',
+      activo:'A',
       idFamilia:1
     }
   }
@@ -36,6 +37,9 @@ export class AgregarInsComponent implements OnInit {
     this.dialogbox.close();
   }
   onSubmit(form:NgForm){
-    console.log(form.value);
+    this.service.addInsumo(form.value).subscribe(res =>{
+      this.resetForm();
+      alert(res);
+    })
   }
 }

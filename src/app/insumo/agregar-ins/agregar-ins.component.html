@@ -64,13 +64,6 @@
         <div class="text-danger text-left" *ngIf="tempAlmacenamiento.invalid && tempAlmacenamiento.touched">Por favor ingresar temperatura</div>        
         <div class="mt-4 input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">ACTIVO</span>
-                </div>
-                <input required type="text" class="form-control" name="activo" #activo ="ngModel" [(ngModel)]="service.formData.activo">    
-        </div>
-        <div class="text-danger text-left" *ngIf="activo.invalid && activo.touched">Por favor ingresar Activo</div>
-        <div class="mt-4 input-group">
-                <div class="input-group-prepend">
                     <span class="input-group-text">FAMILIA</span>
                 </div>
                 <input required type="text" class="form-control" name="idFamilia" #idFamilia ="ngModel" [(ngModel)]="service.formData.idFamilia">    

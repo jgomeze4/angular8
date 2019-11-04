@@ -16,4 +16,9 @@ export class InsumoService {
   getInsumoList():Observable<Insumo[]>{
     return this.http.get<Insumo[]>(this.APIUrl +"/listar");
   }
+  addInsumo(ins:InsumoAdd){
+    console.log(ins);
+    ins.activo = "A";
+ return this.http.post(this.APIUrl+"/crear",ins);
+  }
 }
