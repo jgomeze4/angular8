@@ -9,6 +9,8 @@ import {Observable} from 'rxjs';
 export class InsumoService {
 
   constructor(private http:HttpClient) { }
+  formData: Insumo;
+
   readonly APIUrl="http://138.197.0.136:8081/api/insumo";
   getInsumoList():Observable<Insumo[]>{
     return this.http.get<Insumo[]>(this.APIUrl +"/listar");

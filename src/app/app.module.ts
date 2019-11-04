@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule,MatIconModule,MatButtonModule,MatSortModule} from '@angular/material';
+import { MatTableModule,MatIconModule,MatButtonModule,MatSortModule,MatDialogModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
-
 import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+
 import { InsumoComponent } from './insumo/insumo.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -46,9 +47,12 @@ import { ListarInsComponent } from './insumo/listar-ins/listar-ins.component';
     MatIconModule,
     MatButtonModule,
     MatSortModule,
-    HttpClientModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [InsumoService,InventarioService,UsuarioService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AgregarInsComponent]
 })
 export class AppModule { }
