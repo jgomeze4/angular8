@@ -25,8 +25,8 @@ export class ListarInsComponent implements OnInit {
     //this.listData = new MatTableDataSource(dummyData);
     this.service.getInsumoList().subscribe(data =>{
       this.listData = new MatTableDataSource(data);
-    });
-    this.listData.sort = this.sort;
+      this.listData.sort = this.sort;
+    });  
   }
   onEdit(insumo:Insumo){
     console.log(insumo);
