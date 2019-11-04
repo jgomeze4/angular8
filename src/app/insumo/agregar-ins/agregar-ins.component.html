@@ -13,6 +13,13 @@
             <input required type="text" class="form-control" name="nombre" #nombre ="ngModel" [(ngModel)]="service.formData.nombre">    
         </div>
         <div class="text-danger text-left" *ngIf="nombre.invalid && nombre.touched">Por favor ingresar nombre</div>
+        <div class="mt-4 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">MARCAR</span>
+                </div>
+                <input required type="text" class="form-control" name="marca" #nombre ="ngModel" [(ngModel)]="service.formData.marca">    
+        </div>
+        <div class="text-danger text-left" *ngIf="marca.invalid && marca.touched">Por favor ingresar nombre</div>
         <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">AÑADIR</button>
     </form>
 </div>

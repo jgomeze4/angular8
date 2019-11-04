@@ -28,7 +28,8 @@ export class AgregarInsComponent implements OnInit {
       regInvima:'',
       clasificacionRiesgo:'',
       tempAlmacenamiento:'',
-      activo:''
+      activo:'',
+      familia:null
     }
   }
   onClose(){

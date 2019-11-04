@@ -15,7 +15,7 @@ export class ListarInsComponent implements OnInit {
 
   constructor(private service: InsumoService, private dialog:MatDialog) { }
   listData:MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo']
+  displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo', 'familia.nombre']
   @ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
     this.refreshInsList();
@@ -26,7 +26,7 @@ export class ListarInsComponent implements OnInit {
     this.service.getInsumoList().subscribe(data =>{
       this.listData = new MatTableDataSource(data);
     });
-    //this.listData.sort = this.sort;
+    this.listData.sort = this.sort;
   }
   onEdit(insumo:Insumo){
     console.log(insumo);

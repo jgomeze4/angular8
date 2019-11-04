@@ -1,3 +1,5 @@
+import { Familia } from './familia-model';
+
 export class Insumo{
     idProducto:number;
     nombre:string;
@@ -9,4 +11,5 @@ export class Insumo{
     clasificacionRiesgo:string;
     tempAlmacenamiento:string;
     activo:string;
+    familia:Familia;
 }
