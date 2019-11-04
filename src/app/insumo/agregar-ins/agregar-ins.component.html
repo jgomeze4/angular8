@@ -8,18 +8,11 @@
     <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
         <div class="mt-4 input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">FAMILIA</span>
-            </div>
-            <input required type="number" class="form-control" name="ID_FAMILIA" #ID_FAMILIA ="ngModel" [(ngModel)]="service.formData.ID_FAMILIA">    
-        </div>
-        <div class="text-danger text-left" *ngIf="ID_FAMILIA.invalid && ID_FAMILIA.touched">Por favor seleccione una familia</div>
-        <div class="mt-4 input-group">
-            <div class="input-group-prepend">
                 <span class="input-group-text">NOMBRE</span>
             </div>
-            <input required type="text" class="form-control" name="Nombre" #Nombre ="ngModel" [(ngModel)]="service.formData.Nombre">    
+            <input required type="text" class="form-control" name="nombre" #nombre ="ngModel" [(ngModel)]="service.formData.nombre">    
         </div>
-        <div class="text-danger text-left" *ngIf="Nombre.invalid && Nombre.touched">Por favor ingresar nombre</div>
+        <div class="text-danger text-left" *ngIf="nombre.invalid && nombre.touched">Por favor ingresar nombre</div>
         <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">AÑADIR</button>
     </form>
 </div>
