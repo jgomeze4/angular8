@@ -18,6 +18,7 @@ import { SacarInsComponent } from './insumo/sacar-ins/sacar-ins.component';
 import { InsumoService } from  'src/app/services/insumo.service';
 import { InventarioService } from  'src/app/services/inventario.service';
 import { UsuarioService } from  'src/app/services/usuario.service';
+import { ListarInsComponent } from './insumo/listar-ins/listar-ins.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UsuarioService } from  'src/app/services/usuario.service';
     ListarInvComponent,
     DetalleUsComponent,
     AgregarInsComponent,
-    SacarInsComponent
+    SacarInsComponent,
+    ListarInsComponent
   ],
   imports: [
     BrowserModule,
