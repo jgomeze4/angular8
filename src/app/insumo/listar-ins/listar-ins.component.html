@@ -6,7 +6,7 @@
             <ng-container matColumnDef="Options">
                 <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="onEdit(row)">
                         <mat-icon>launch</mat-icon>
                     </button>
                 </mat-cell>

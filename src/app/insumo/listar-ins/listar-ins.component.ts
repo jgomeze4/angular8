@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
-
+import { Insumo}  from "src/app/models/insumo-model";
 @Component({
   selector: 'app-listar-ins',
   templateUrl: './listar-ins.component.html',
@@ -12,6 +12,16 @@ export class ListarInsComponent implements OnInit {
   listData:MatTableDataSource<any>;
   displayedColumns: string[] = ['Options','ID_PRODUCTO','ID_FAMILIA','Nombre','Marca','Proveedor','Codigo','Presentacion','RegINVIMA','ClasificacionRiesgo','TipoAlmacenamiento','ID_USUARIO','Activo']
   ngOnInit() {
+    this.refreshInsList();
   }
-
+  refreshInsList(){
+    var dummyData =[{ID_PRODUCTO:1,ID_FAMILIA:1,Nombre:"prueba",Marca:"prueba",Proveedor:"prueba",Codigo:"prueba",Presentacion:"Prueba",RegINVIMA:"prueba",ClasificacionRiesgo:"prueba",TipoAlmacenamiento:"prueba",ID_USUARIO:1,Activo:1}]
+    this.listData = new MatTableDataSource(dummyData);
+  }
+  onEdit(insumo:Insumo){
+    console.log(insumo);
+  }
+  onDelete(id:number){
+    console.log(id);
+  }
 }
