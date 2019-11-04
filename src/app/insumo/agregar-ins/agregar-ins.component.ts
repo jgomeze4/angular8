@@ -39,7 +39,7 @@ export class AgregarInsComponent implements OnInit {
   onSubmit(form:NgForm){
     this.service.addInsumo(form.value).subscribe(res =>{
       this.resetForm();
-      alert(res);
+      alert("Añadido Exitosamente");
     })
   }
 }
