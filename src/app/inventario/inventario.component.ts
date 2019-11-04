@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Inventario}  from "src/app/models/inventario-model";
+import { InventarioService } from 'src/app/services/inventario.service';
 
 @Component({
   selector: 'app-inventario',
