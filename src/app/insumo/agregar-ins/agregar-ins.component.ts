@@ -19,18 +19,16 @@ export class AgregarInsComponent implements OnInit {
     form.resetForm();
 
     this.service.formData ={
-      ID_PRODUCTO:0,
-      ID_FAMILIA:0,
-      Nombre:'',
-      Marca:'',
-      Proveedor:'',
-      Codigo:'',
-      Presentacion:'',
-      RegINVIMA:'',
-      ClasificacionRiesgo:'',
-      TipoAlmacenamiento:'',
-      ID_USUARIO:0,
-      Activo:false
+      idProducto:0,
+      nombre:'',
+      marca:'',
+      proveedor:'',
+      codigo:'',
+      presentacion:'',
+      regInvima:'',
+      clasificacionRiesgo:'',
+      tempAlmacenamiento:'',
+      activo:''
     }
   }
   onClose(){

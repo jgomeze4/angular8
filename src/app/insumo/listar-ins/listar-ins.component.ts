@@ -15,7 +15,7 @@ export class ListarInsComponent implements OnInit {
 
   constructor(private service: InsumoService, private dialog:MatDialog) { }
   listData:MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options','ID_PRODUCTO','ID_FAMILIA','Nombre','Marca','Proveedor','Codigo','Presentacion','RegINVIMA','ClasificacionRiesgo','TipoAlmacenamiento','ID_USUARIO','Activo']
+  displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo']
   @ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
     this.refreshInsList();
