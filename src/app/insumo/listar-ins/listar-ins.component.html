@@ -1,1 +1,64 @@
-<p>listar-ins works!</p>
+<div style="overflow: auto;">
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="listData">
+            <mat-header-row *matHeaderRowDef ="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+            <ng-container matColumnDef="Options">
+                <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button>
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="ID_PRODUCTO">
+                <mat-header-cell *matHeaderCellDef >PRODUCTO ID</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.ID_PRODUCTO}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="ID_FAMILIA">
+                    <mat-header-cell *matHeaderCellDef >FAMILIA ID</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.ID_FAMILIA}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Nombre">
+                    <mat-header-cell *matHeaderCellDef >Nombre</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Nombre}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Marca">
+                    <mat-header-cell *matHeaderCellDef >Marca</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Marca}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Proveedor">
+                    <mat-header-cell *matHeaderCellDef >Proveedor</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Proveedor}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Codigo">
+                    <mat-header-cell *matHeaderCellDef >Codigo</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Codigo}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Presentacion">
+                    <mat-header-cell *matHeaderCellDef >Presentacion</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Presentacion}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="RegINVIMA">
+                    <mat-header-cell *matHeaderCellDef >INVIMA</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.RegINVIMA}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="ClasificacionRiesgo">
+                    <mat-header-cell *matHeaderCellDef >Riesgo</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.ClasificacionRiesgo}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="TipoAlmacenamiento">
+                    <mat-header-cell *matHeaderCellDef >Almacenamiento</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.TipoAlmacenamiento}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="ID_USUARIO">
+                    <mat-header-cell *matHeaderCellDef >Usuario ID</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.ID_USUARIO}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Activo">
+                    <mat-header-cell *matHeaderCellDef >Activo</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Activo}}</mat-header-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+</div>

@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule,MatIconModule,MatButtonModule} from '@angular/material';
+
 import {MatInputModule} from '@angular/material/input';
 import { InsumoComponent } from './insumo/insumo.component';
 import { InventarioComponent } from './inventario/inventario.component';
@@ -38,7 +40,10 @@ import { ListarInsComponent } from './insumo/listar-ins/listar-ins.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [InsumoService,InventarioService,UsuarioService],
   bootstrap: [AppComponent]
