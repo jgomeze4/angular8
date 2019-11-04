@@ -17,8 +17,7 @@ export class InsumoService {
     return this.http.get<Insumo[]>(this.APIUrl +"/listar");
   }
   addInsumo(ins:InsumoAdd){
-    console.log(ins);
     ins.activo = "A";
- return this.http.post(this.APIUrl+"/crear",ins);
+    return this.http.post(this.APIUrl+"/crear",ins);
   }
 }
