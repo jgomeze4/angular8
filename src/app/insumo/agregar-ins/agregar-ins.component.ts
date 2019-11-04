@@ -9,7 +9,7 @@ import { NgForm} from '@angular/forms';
 })
 export class AgregarInsComponent implements OnInit {
 
-  constructor(public dialogbox:MatDialogRef<AgregarInsComponent>, private service:InsumoService) { }
+  constructor(public dialogbox:MatDialogRef<AgregarInsComponent>, public service:InsumoService) { }
 
   ngOnInit() {
     this.resetForm();
