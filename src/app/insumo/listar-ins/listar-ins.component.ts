@@ -13,7 +13,11 @@ import {AgregarInsComponent} from 'src/app/insumo/agregar-ins/agregar-ins.compon
 })
 export class ListarInsComponent implements OnInit {
 
-  constructor(private service: InsumoService, private dialog:MatDialog) { }
+  constructor(private service: InsumoService, private dialog:MatDialog) {
+    this.service.listen().subscribe((m:any)=>{
+      this.refreshInsList();
+    })
+   }
   listData:MatTableDataSource<any>;
   displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo', 'familia.nombre']
   @ViewChild(MatSort,null) sort:MatSort;

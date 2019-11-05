@@ -35,11 +35,13 @@ export class AgregarInsComponent implements OnInit {
   }
   onClose(){
     this.dialogbox.close();
+    this.service.filter('Register click');
   }
   onSubmit(form:NgForm){
     this.service.addInsumo(form.value).subscribe(res =>{
       this.resetForm();
       alert("Añadido Exitosamente");
+      this.dialogbox.close();
     })
   }
 }
