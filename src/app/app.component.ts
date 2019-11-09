@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CookieService} from 'ngx-cookie-service';
 import { LoginService } from './services/login.service';
-import { LoginToken } from 'src/app/models/loginToken-model';
+import { LoginComponent} from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   InsScreen = false;
   InvScreen = false;
   loginToken = null;
-  
+
   public ngOnInit():void{
   }
   public ngAfterViewInit (){
@@ -35,11 +35,14 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.loginToken= { id:_data.split(';')[0], token:_data.split(';')[1] };
     this.loginService.doLoginToken(this.loginToken).subscribe(res => {
       result = res.toString();
-      console.log(result);
       return this.authorized = true;
     },error =>{
       result = "";
       return this.authorized =false;
     });
+  }
+  authChangedHandler(auth:boolean) {
+    this.authorized = auth;
+    console.log(auth);
   }
 }

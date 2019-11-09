@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Usuario } from 'src/app/models/usuario-model';
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(public service:LoginService, public cookieService:CookieService) { }
   public success:boolean = false;
   public errorMsg:string ='';
+  @Input() authorized:boolean;
+  @Output() authChanged: EventEmitter<boolean> =   new EventEmitter();
 
   ngOnInit() {
     this.resetForm();
@@ -28,13 +30,17 @@ export class LoginComponent implements OnInit {
     }
   }
   onSubmit(form:NgForm){
-
     this.service.doLogin(form.value).subscribe(res =>{
         if(res["success"]){
           var user:Usuario = res["data"];
           var cookieVal = user.id+';'+user.token+';'+user.nombre;
           cookieVal = btoa(cookieVal);
           this.cookieService.set('session',cookieVal);
+          this.authorized = true;
+          this.authChanged.emit(this.authorized);
+        }else{
+          this.authorized = false;
+          this.authChanged.emit(this.authorized);
         }
     }, error =>{
       this.cookieService.delete('session');
@@ -43,6 +49,8 @@ export class LoginComponent implements OnInit {
       }else{
         this.errorMsg = "Ocurrió un error";
       }
+      this.authorized = false;
+      this.authChanged.emit(this.authorized);
     })
   }
 }

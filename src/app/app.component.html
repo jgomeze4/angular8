@@ -1,7 +1,7 @@
 <div class="container">
     <h3 class="d-flex justify-content-center">LABX</h3>
     <h5 class="d-flex justify-content-center">Software para Inventarios de laboratorio</h5>
-    <app-login *ngIf="authorized==false"></app-login>
+    <app-login *ngIf="authorized==false" (authChanged)="authChangedHandler($event)" ></app-login>
     <div *ngIf="authorized">
     <nav class="navbar navbar-expand-sm big-light navbar-dark">
         <ul class="navbar-nav">
@@ -16,6 +16,5 @@
     <app-insumo *ngIf="InsScreen"></app-insumo>
     <app-inventario *ngIf="InvScreen"></app-inventario>
     </div>
-
 </div> 
 <router-outlet></router-outlet>
