@@ -19,8 +19,8 @@ export class InsumoService {
   readonly APIFUrl ="http://138.197.0.136:8081/api/familia";
   getInsumoList():Observable<any>{
     var _data = atob(this.cookieService.get('session'));
-    var id = _data.split(';')[0];
-    var token = 'Bearer '+_data.split(';')[1];
+    let id:string = _data.split(';')[0];
+    let token:string = 'Bearer '+_data.split(';')[1];
     console.log(id);
     console.log(token);
     const headers = new HttpHeaders().append('Authorization',token).append('id',id);
