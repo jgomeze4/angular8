@@ -29,6 +29,7 @@ import { InsumoService } from  'src/app/services/insumo.service';
 import { InventarioService } from  'src/app/services/inventario.service';
 import { LoginService } from  'src/app/services/login.service';
 
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { LoginService } from  'src/app/services/login.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [InsumoService,InventarioService,LoginService],
+  providers: [InsumoService,InventarioService,LoginService,CookieService],
   bootstrap: [AppComponent],
   entryComponents: [AgregarInsComponent]
 })
