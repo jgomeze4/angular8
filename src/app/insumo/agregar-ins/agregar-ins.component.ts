@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import { InsumoService } from 'src/app/services/insumo.service';
 import { NgForm} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
+
 @Component({
   selector: 'app-agregar-ins',
   templateUrl: './agregar-ins.component.html',
@@ -9,11 +11,15 @@ import { NgForm} from '@angular/forms';
 })
 export class AgregarInsComponent implements OnInit {
 
-  constructor(public dialogbox:MatDialogRef<AgregarInsComponent>, public service:InsumoService) { }
-
-  ngOnInit() {
-    this.resetForm();
-  }
+  constructor(public dialogbox:MatDialogRef<AgregarInsComponent>, 
+    public service:InsumoService, 
+    private snackBar:MatSnackBar) { }
+    public listItems:Array<String>=[];
+  
+    ngOnInit() {
+      this.resetForm();
+      this.dropdownRefresh();
+    }
   resetForm(form?:NgForm){
     if(form != null)
     form.resetForm();
@@ -33,6 +39,13 @@ export class AgregarInsComponent implements OnInit {
       idFamilia:1
     }
   }
+  dropdownRefresh(){
+    this.service.getFamiliaValues().subscribe(data=>{
+      data.forEach(element => {
+        this.listItems.push(element["nombre"]);
+      });
+    });
+  }
   onClose(){
     this.dialogbox.close();
     this.service.filter('Register click');
@@ -40,6 +53,7 @@ export class AgregarInsComponent implements OnInit {
   onSubmit(form:NgForm){
     this.service.addInsumo(form.value).subscribe(res =>{
       this.resetForm();
+      this.snackBar.open(res.toString(),'',{duration:5000, verticalPosition:'top'})
       alert("Añadido Exitosamente");
       this.dialogbox.close();
     })

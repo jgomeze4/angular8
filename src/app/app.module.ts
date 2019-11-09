@@ -7,7 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule,MatIconModule,MatButtonModule,MatSortModule,MatDialogModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material';
+import {MatNativeDateModule} from '@angular/material';
 
 import { InsumoComponent } from './insumo/insumo.component';
 import { InventarioComponent } from './inventario/inventario.component';
@@ -50,6 +53,9 @@ import { AgregarInvComponent } from './inventario/agregar-inv/agregar-inv.compon
     MatButtonModule,
     MatSortModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     FormsModule
   ],

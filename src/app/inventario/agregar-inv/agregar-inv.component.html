@@ -7,7 +7,15 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">PRODUCTO</span>
                 </div>
-                <input required type="number" class="form-control" name="idProducto" #idProducto ="ngModel" [(ngModel)]="service.formData.idProducto">    
+                <input required type="number" class="form-control" name="idProducto" #idProducto ="ngModel" [(ngModel)]="service.formData.idProducto"> 
+            </div>
+            <div class="mt-4 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">VENCIMIENTO</span>
+                </div>
+                <input required  [matDatepicker]="picker" type="text" class="form-control" name="fechaVencimiento" #fechaVencimiento ="ngModel" [(ngModel)]="service.formData.fechaVencimiento">
+                <mat-datepicker-toggle matSuffix [for] ="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker> 
             </div>
             <div class="text-danger text-left" *ngIf="idProducto.invalid && idProducto.touched">Por favor ingresar el Producto</div>
             <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">AÑADIR</button>
