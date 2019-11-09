@@ -21,12 +21,14 @@ import { ListarInvComponent } from './inventario/listar-inv/listar-inv.component
 import { DetalleUsComponent } from './usuario/detalle-us/detalle-us.component';
 import { AgregarInsComponent } from './insumo/agregar-ins/agregar-ins.component';
 import { SacarInsComponent } from './insumo/sacar-ins/sacar-ins.component';
+import { ListarInsComponent } from './insumo/listar-ins/listar-ins.component';
+import { AgregarInvComponent } from './inventario/agregar-inv/agregar-inv.component';
+import { LoginComponent } from './login/login.component';
 
 import { InsumoService } from  'src/app/services/insumo.service';
 import { InventarioService } from  'src/app/services/inventario.service';
-import { UsuarioService } from  'src/app/services/usuario.service';
-import { ListarInsComponent } from './insumo/listar-ins/listar-ins.component';
-import { AgregarInvComponent } from './inventario/agregar-inv/agregar-inv.component';
+import { LoginService } from  'src/app/services/login.service';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AgregarInvComponent } from './inventario/agregar-inv/agregar-inv.compon
     AgregarInsComponent,
     SacarInsComponent,
     ListarInsComponent,
-    AgregarInvComponent
+    AgregarInvComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { AgregarInvComponent } from './inventario/agregar-inv/agregar-inv.compon
     HttpClientModule,
     FormsModule
   ],
-  providers: [InsumoService,InventarioService,UsuarioService],
+  providers: [InsumoService,InventarioService,LoginService],
   bootstrap: [AppComponent],
   entryComponents: [AgregarInsComponent]
 })

@@ -1,0 +1,17 @@
+<div style="overflow: auto;height: 450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">EMAIL</span>
+            </div>
+            <input required type="text" class="form-control" name="email" #email ="ngModel" [(ngModel)]="service.formData.email">    
+        </div>
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">CONTRASEÑA</span>
+            </div>
+            <input required type="password" class="form-control" name="contrasena" #contrasena ="ngModel" [(ngModel)]="service.formData.contrasena">    
+        </div>
+        <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">AÑADIR</button>
+    </form>
+</div>

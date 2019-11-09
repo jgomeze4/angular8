@@ -54,7 +54,6 @@ export class AgregarInsComponent implements OnInit {
     this.service.addInsumo(form.value).subscribe(res =>{
       this.resetForm();
       this.snackBar.open(res.toString(),'',{duration:5000, verticalPosition:'top'})
-      alert("Añadido Exitosamente");
       this.dialogbox.close();
     })
   }
