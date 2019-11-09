@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Insumo}  from "src/app/models/insumo-model";
 import { InsumoService } from 'src/app/services/insumo.service';
@@ -11,7 +11,7 @@ import {AgregarInsComponent} from 'src/app/insumo/agregar-ins/agregar-ins.compon
   templateUrl: './listar-ins.component.html',
   styleUrls: ['./listar-ins.component.css']
 })
-export class ListarInsComponent implements OnInit {
+export class ListarInsComponent implements OnInit, AfterViewInit {
 
   constructor(private service: InsumoService, private dialog:MatDialog) {
     this.service.listen().subscribe((m:any)=>{
@@ -22,6 +22,9 @@ export class ListarInsComponent implements OnInit {
   displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo', 'familia.nombre']
   @ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
+    
+  }
+  ngAfterViewInit(){
     this.refreshInsList();
   }
   refreshInsList(){

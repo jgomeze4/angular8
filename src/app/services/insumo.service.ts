@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {InsumoResponse} from 'src/app/models/insumoResponse-model';
+import { CookieService} from 'ngx-cookie-service';
 import {Insumo} from 'src/app/models/insumo-model';
 import {InsumoAdd} from 'src/app/models/insumoAdd-model';
 import {Observable,Subject} from 'rxjs';
@@ -10,13 +12,20 @@ import { Familia } from '../models/familia-model';
 })
 export class InsumoService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private cookieService:CookieService) { }
   formData: InsumoAdd;
 
   readonly APIUrl="http://138.197.0.136:8081/api/insumo";
   readonly APIFUrl ="http://138.197.0.136:8081/api/familia";
-  getInsumoList():Observable<Insumo[]>{
-    return this.http.get<Insumo[]>(this.APIUrl +"/listar");
+  getInsumoList():Observable<any>{
+    var _data = atob(this.cookieService.get('session'));
+    var id = _data.split(';')[0];
+    var token = 'Bearer '+_data.split(';')[1];
+    console.log(id);
+    console.log(token);
+    const headers = new HttpHeaders().append('Authorization',token).append('id',id);
+    console.log(headers);
+    return this.http.get<InsumoResponse[]>(this.APIUrl +"/listar", {headers});
   }
   getFamiliaValues():Observable<any>{
     return this.http.get<Familia[]>(this.APIFUrl+"/listar");
