@@ -1,8 +1,6 @@
-import { Response } from './Response-model';
+import { ResponseModel } from './Response-model';
 import { Usuario } from './usuario-model';
 
-export class LoginResponse extends Response{
-    success:boolean;
+export class LoginResponse extends ResponseModel{
     data:Usuario;
-    message:string;
 }

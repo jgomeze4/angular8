@@ -19,15 +19,13 @@ export class AppComponent implements OnInit,AfterViewInit {
   loginToken = null;
 
   public ngOnInit():void{
-  }
-  public ngAfterViewInit (){
     var cookieVal = this.cookieService.get('session');
     if(cookieVal != ''){
-      console.log(this.autoLogin(cookieVal));
-      if(this.authorized){
-        console.log("authorized");
-      }
+      this.autoLogin(cookieVal);
     }
+  }
+  public ngAfterViewInit (){
+
   }
   autoLogin(rawData:string){
     var _data = atob(rawData);
