@@ -19,7 +19,7 @@ export class ListarInsComponent implements OnInit, AfterViewInit {
     })
    }
   listData:MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options','idProducto','nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo','tempAlmacenamiento','activo', 'familia.nombre']
+  displayedColumns: string[] = ['nombre','marca','proveedor','codigo','presentacion','regInvima','clasificacionRiesgo', 'familia.nombre']
   @ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
     
@@ -28,8 +28,6 @@ export class ListarInsComponent implements OnInit, AfterViewInit {
     this.refreshInsList();
   }
   refreshInsList(){
-    //var dummyData =[{ID_PRODUCTO:1,ID_FAMILIA:1,Nombre:"prueba",Marca:"prueba",Proveedor:"prueba",Codigo:"prueba",Presentacion:"Prueba",RegINVIMA:"prueba",ClasificacionRiesgo:"prueba",TipoAlmacenamiento:"prueba",ID_USUARIO:1,Activo:1},{ID_PRODUCTO:2,ID_FAMILIA:1,Nombre:"abc",Marca:"abc",Proveedor:"abc",Codigo:"abc",Presentacion:"abc",RegINVIMA:"abc",ClasificacionRiesgo:"abc",TipoAlmacenamiento:"abc",ID_USUARIO:1,Activo:1}]
-    //this.listData = new MatTableDataSource(dummyData);
     this.service.getInsumoList().subscribe(data =>{
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;

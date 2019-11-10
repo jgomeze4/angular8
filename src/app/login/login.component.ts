@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Usuario } from 'src/app/models/usuario-model';
@@ -11,7 +12,7 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public service:LoginService, public cookieService:CookieService) { }
+  constructor(public service:LoginService, public cookieService:CookieService, public snackBar:MatSnackBar) { }
   public success:boolean = false;
   public errorMsg:string ='';
   @Input() authorized:boolean;
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
         this.errorMsg = "Ocurrió un error";
       }
       this.authorized = false;
+      this.snackBar.open(this.errorMsg,'',{duration:4000, verticalPosition:'bottom'});
       this.authChanged.emit(this.authorized);
     })
   }

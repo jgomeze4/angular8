@@ -20,7 +20,6 @@ export class AgregarInsComponent implements OnInit {
     ngOnInit() {
       this.resetForm();
       this.dropdownRefresh();
-      console.log(this.listItems);
     }
   resetForm(form?:NgForm){
     if(form != null)
@@ -34,11 +33,9 @@ export class AgregarInsComponent implements OnInit {
       codigo:'',
       presentacion:'',
       regInvima:'',
-      idUsuario:null,
       clasificacionRiesgo:'',
       tempAlmacenamiento:'',
-      activo:'A',
-      idFamilia:1
+      idFamilia:''
     }
   }
   dropdownRefresh(){
@@ -55,7 +52,7 @@ export class AgregarInsComponent implements OnInit {
   onSubmit(form:NgForm){
     this.service.addInsumo(form.value).subscribe(res =>{
       this.resetForm();
-      this.snackBar.open(res.toString(),'',{duration:5000, verticalPosition:'top'})
+      this.snackBar.open('Insumo Añadido Exitosamente','',{duration:4000, verticalPosition:'bottom'});
       this.dialogbox.close();
     })
   }

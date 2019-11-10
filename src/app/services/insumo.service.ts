@@ -29,7 +29,6 @@ export class InsumoService {
     return this.http.get<FamiliaResponse[]>(this.APIFUrl+"/listar",{headers:{'Content-Type':'application/json','Authorization':token,'id':id}});
   }
   addInsumo(ins:InsumoAdd){
-    ins.activo = "A";
     var _data = atob(this.cookieService.get('session'));
     let id:string = _data.split(';')[0];
     let token:string = 'Bearer '+_data.split(';')[1];
