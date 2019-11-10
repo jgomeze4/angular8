@@ -30,6 +30,7 @@ import { InventarioService } from  'src/app/services/inventario.service';
 import { LoginService } from  'src/app/services/login.service';
 
 import { CookieService } from 'ngx-cookie-service';
+import { SalidaInvComponent } from './inventario/salida-inv/salida-inv.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CookieService } from 'ngx-cookie-service';
     ListarInsComponent,
     AgregarInvComponent,
     LoginComponent,
+    SalidaInvComponent,
   ],
   imports: [
     BrowserModule,

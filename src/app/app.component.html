@@ -6,15 +6,19 @@
     <nav class="navbar navbar-expand-sm big-light navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <button class="m-1 btn btn-light btn-outline-primary " Buttonlabel ="InsScreen" (click)="InsScreen=true; InvScreen=false;">Insumos</button>
+                <button class="m-1 btn btn-light btn-outline-primary " Buttonlabel ="InsScreen" (click)="InsScreen=true; InvScreen=false;SInvScreen = false;">Insumos</button>
             </li>
             <li class="nav-item">
-                <button class="m-1 btn btn-light btn-outline-primary" Buttonlabel ="InvScreen" (click)="InsScreen=false; InvScreen=true;">Añadir a Inventario</button>
+                <button class="m-1 btn btn-light btn-outline-primary" Buttonlabel ="InvScreen" (click)="InsScreen=false; InvScreen=true;SInvScreen = false;">Añadir a Inventario</button>
+            </li>
+            <li class="nav-item">
+                <button class="m-1 btn btn-light btn-outline-primary" Buttonlabel ="SInvScreen" (click)="InsScreen=false; InvScreen=false; SInvScreen = true;">Salida de Inventario</button>
             </li>
         </ul>
     </nav>
     <app-insumo *ngIf="InsScreen"></app-insumo>
     <app-inventario *ngIf="InvScreen"></app-inventario>
+    <app-salida-inv *ngIf="SInvScreen"></app-salida-inv>
     </div>
 </div> 
 <router-outlet></router-outlet>
