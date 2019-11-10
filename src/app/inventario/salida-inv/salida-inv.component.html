@@ -32,7 +32,7 @@
                 <input required type="number" class="form-control" name="cantidad" #cantidad ="ngModel" [(ngModel)]="service.uformData.cantidad" min="0">
         </div>
         <div class="text-danger text-left" *ngIf="cantidad.invalid && cantidad.touched">Por favor ingresar la Cantidad</div>
-        <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">AÑADIR</button>
+        <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">SACAR</button>
     </form>
 </div>
 
