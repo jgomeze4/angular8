@@ -19,6 +19,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   InsScreen = false;
   InvScreen = false;
   SInvScreen = false;
+  LInvScreen = false;
   loginToken = null;
 
   public ngOnInit():void{
