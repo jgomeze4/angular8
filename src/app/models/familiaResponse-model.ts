@@ -1,6 +1,7 @@
-import {ResponseModel} from './response-model';
 import { Familia } from './familia-model';
 
-export class FamiliaResponse extends ResponseModel{
+export class FamiliaResponse{
+    success:boolean;
     data:Familia;
+    message:string;
 }

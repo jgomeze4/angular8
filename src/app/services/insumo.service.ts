@@ -25,7 +25,7 @@ export class InsumoService {
     console.log(token);
     const headers = new HttpHeaders().append('Authorization',token).append('id',id);
     console.log(headers);
-    return this.http.get<InsumoResponse[]>(this.APIUrl +"/listar", {headers});
+    return this.http.get<InsumoResponse[]>(this.APIUrl +"/listar",{headers});
   }
   getFamiliaValues():Observable<any>{
     return this.http.get<Familia[]>(this.APIFUrl+"/listar");
