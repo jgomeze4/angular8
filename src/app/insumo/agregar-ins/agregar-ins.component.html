@@ -67,7 +67,7 @@
                     <span class="input-group-text">FAMILIA</span>
                 </div>
                 <select required type="text" class="form-control" name="idFamilia" #idFamilia ="ngModel" [(ngModel)]="service.formData.idFamilia">
-                    <option *ngFor="let dl listItems" [value]="dl">{{dl}}</option>
+                    <option *ngFor="let dl of listItems" [value]="dl.id">{{dl.nombre}}</option>
                 </select>    
         </div>
         <div class="text-danger text-left" *ngIf="idFamilia.invalid && idFamilia.touched">Por favor ingresar Familia</div>        

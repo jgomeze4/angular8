@@ -3,6 +3,7 @@ import {MatDialogRef} from '@angular/material';
 import { InsumoService } from 'src/app/services/insumo.service';
 import { NgForm} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+import { Familia } from 'src/app/models/familia-model';
 
 @Component({
   selector: 'app-agregar-ins',
@@ -14,11 +15,12 @@ export class AgregarInsComponent implements OnInit {
   constructor(public dialogbox:MatDialogRef<AgregarInsComponent>, 
     public service:InsumoService, 
     private snackBar:MatSnackBar) { }
-    public listItems:Array<String>=[];
+    public listItems:Array<Familia>=[];
   
     ngOnInit() {
       this.resetForm();
       this.dropdownRefresh();
+      console.log(this.listItems);
     }
   resetForm(form?:NgForm){
     if(form != null)
@@ -42,7 +44,7 @@ export class AgregarInsComponent implements OnInit {
   dropdownRefresh(){
     this.service.getFamiliaValues().subscribe(data=>{
       data.forEach(element => {
-        this.listItems.push(element["nombre"]);
+        this.listItems.push(element);
       });
     });
   }

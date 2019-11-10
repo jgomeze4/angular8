@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {InsumoResponse} from 'src/app/models/insumoResponse-model';
 import { CookieService} from 'ngx-cookie-service';
-import {Insumo} from 'src/app/models/insumo-model';
 import {InsumoAdd} from 'src/app/models/insumoAdd-model';
 import {Observable,Subject} from 'rxjs';
-import { Familia } from '../models/familia-model';
+import { FamiliaResponse } from '../models/familiaResponse-model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,18 +20,20 @@ export class InsumoService {
     var _data = atob(this.cookieService.get('session'));
     let id:string = _data.split(';')[0];
     let token:string = 'Bearer '+_data.split(';')[1];
-    console.log(id);
-    console.log(token);
-    const headers = new HttpHeaders().append('Authorization',token).append('id',id);
-    console.log(headers);
-    return this.http.get<InsumoResponse[]>(this.APIUrl +"/listar",{headers});
+    return this.http.get<InsumoResponse[]>(this.APIUrl +"/listar",{headers:{'Content-Type':'application/json','Authorization':token,'id':id}});
   }
   getFamiliaValues():Observable<any>{
-    return this.http.get<Familia[]>(this.APIFUrl+"/listar");
+    var _data = atob(this.cookieService.get('session'));
+    let id:string = _data.split(';')[0];
+    let token:string = 'Bearer '+_data.split(';')[1];
+    return this.http.get<FamiliaResponse[]>(this.APIFUrl+"/listar",{headers:{'Content-Type':'application/json','Authorization':token,'id':id}});
   }
   addInsumo(ins:InsumoAdd){
     ins.activo = "A";
-    return this.http.post(this.APIUrl+"/crear",ins);
+    var _data = atob(this.cookieService.get('session'));
+    let id:string = _data.split(';')[0];
+    let token:string = 'Bearer '+_data.split(';')[1];
+    return this.http.post(this.APIUrl+"/crear",ins,{headers:{'Content-Type':'application/json','Authorization':token,'id':id}});
   }
   private _listeners = new Subject<any>();
   listen():Observable<any>{
