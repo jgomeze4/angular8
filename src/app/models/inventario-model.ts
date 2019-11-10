@@ -1,9 +1,7 @@
 export class Inventario{
-    idProducto:number;
-    idBodega:number;
+    idProducto:string;
+    idBodega:string;
     lote:string;
-    activo:string;
     cantidad:number;
-    fechaVencimiento:Date;
-    idUsuario:number;
+    fechaVencimiento:string;
 }

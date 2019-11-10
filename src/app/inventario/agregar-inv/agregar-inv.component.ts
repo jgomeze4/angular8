@@ -25,11 +25,9 @@ export class AgregarInvComponent implements OnInit {
     form.resetForm();
     this.service.formData ={
       idProducto:null,
-      idBodega:null,
-      idUsuario:null,
+      idBodega:'1',
       lote:'',
-      activo:'',
-      cantidad:0,
+      cantidad:1,
       fechaVencimiento:null,
     }
   }
