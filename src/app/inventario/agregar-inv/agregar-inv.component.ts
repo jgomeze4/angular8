@@ -14,7 +14,7 @@ export class AgregarInvComponent implements OnInit {
 
   constructor(public service:InventarioService,public serviceInsumo:InsumoService,private snackBar:MatSnackBar) { }
   public listItems:Array<Insumo>=[];
-  
+  errorMsg:string  = "";
   ngOnInit() {
     this.resetForm();
     this.dropdownRefresh();
@@ -44,6 +44,9 @@ export class AgregarInvComponent implements OnInit {
     this.service.addInventario(form.value).subscribe(res =>{
       this.resetForm();
       this.snackBar.open('Inventario Añadido Exitosamente','',{duration:4000, verticalPosition:'bottom'});
+    }, error =>{
+      this.errorMsg = error["error"]["message"];
+      this.snackBar.open(this.errorMsg,'',{duration:4000, verticalPosition:'bottom'});
     })
   }
 }

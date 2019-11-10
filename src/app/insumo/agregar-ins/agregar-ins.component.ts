@@ -16,7 +16,8 @@ export class AgregarInsComponent implements OnInit {
     public service:InsumoService, 
     private snackBar:MatSnackBar) { }
     public listItems:Array<Familia>=[];
-  
+    public errorMsg:string;
+    
     ngOnInit() {
       this.resetForm();
       this.dropdownRefresh();
@@ -54,6 +55,9 @@ export class AgregarInsComponent implements OnInit {
       this.resetForm();
       this.snackBar.open('Insumo Añadido Exitosamente','',{duration:4000, verticalPosition:'bottom'});
       this.dialogbox.close();
+    },  error =>{
+      this.errorMsg = error["error"]["message"];
+      this.snackBar.open(this.errorMsg,'',{duration:4000, verticalPosition:'bottom'});
     })
   }
 }
