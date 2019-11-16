@@ -11,7 +11,7 @@ import {MatSnackBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
-
+import {MomentModule} from 'ngx-moment';
 import { InsumoComponent } from './insumo/insumo.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -63,7 +63,8 @@ import { SalidaInvComponent } from './inventario/salida-inv/salida-inv.component
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MomentModule
   ],
   providers: [InsumoService,InventarioService,LoginService,CookieService],
   bootstrap: [AppComponent],
